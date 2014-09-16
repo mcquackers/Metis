@@ -19,6 +19,7 @@ class FlashcardGame
   def ask_user_which_deck
     puts "Japanese"
     puts "Spanish"
+    puts "German"
     print "Select a deck to play (leave blank to quit): "
     deck = gets.chomp
     puts deck
