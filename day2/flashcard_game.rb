@@ -1,13 +1,22 @@
+require "./deck"
+require "./card"
 class FlashcardGame
+  def initialize(decks)
+    @decks = decks
+  end
+
   def play
     loop do
+      list_out_decks
+
       deck = ask_user_which_deck
-      if deck == ''
-        puts "Ending game"
-        break
+
+      if deck
+        puts "Would play #{deck.name}"
+        deck.play
       else
-        #        play_deck = Deck.new(deck)
-         puts "Would play"
+        puts "Exiting"
+        break
       end
 
     end
@@ -17,15 +26,28 @@ class FlashcardGame
   private
 
   def ask_user_which_deck
-    puts "Japanese"
-    puts "Spanish"
     print "Select a deck to play (leave blank to quit): "
-    deck = gets.chomp
-    puts deck
-    deck
+    requested_deck_name = gets.chomp
+    @decks.find {|deck| deck.name.downcase == requested_deck_name.downcase}
+   # deck = @decks.find do |deck|
+   #   deck.name == requested_deck_name
+   # end
+  end
+
+  def list_out_decks
+    @decks.each do |deck|
+      puts deck.name
+    end
   end
 
 end
 
-flashcard_game = FlashcardGame.new
+japanese_cards = []
+japanese_cards << Card.new("Neko", "Cat") << Card.new("Inu", "Dog")
+spanish_cards = []
+spanish_cards << Card.new("Perro", "Dog") << Card.new("Gato","Cat")
+decks = []
+decks << Deck.new("Spanish", spanish_cards) << Deck.new("Japanese", japanese_cards)
+
+flashcard_game = FlashcardGame.new(decks)
 flashcard_game.play
