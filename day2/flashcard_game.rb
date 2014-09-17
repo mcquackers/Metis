@@ -43,11 +43,11 @@ class FlashcardGame
 end
 
 japanese_cards = []
-japanese_cards << Card.new("Neko", "Cat") << Card.new("Inu", "Dog")
+japanese_cards << Card.new({front: "Neko", back: "Cat"}) << Card.new({front: "Inu", back: "Dog"})
 spanish_cards = []
-spanish_cards << Card.new("Perro", "Dog") << Card.new("Gato","Cat")
+spanish_cards << Card.new({front: "Perro", back: "Dog"}) << Card.new({front: "Gato", back: "Cat"})
 decks = []
-decks << Deck.new("Spanish", spanish_cards) << Deck.new("Japanese", japanese_cards)
+decks << Deck.new({name: "Spanish", cards: spanish_cards}) << Deck.new({name: "Japanese", cards: japanese_cards})
 
 flashcard_game = FlashcardGame.new(decks)
 flashcard_game.play
