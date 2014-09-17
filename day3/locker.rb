@@ -10,7 +10,7 @@ class Locker
         end
       end
     end
-    @lockers.each_index {|locknum| puts "Locker \##{locknum+1} is #{@lockers[locknum]}"}
+    @lockers.each_with_index {|state, locknum| puts "Locker \##{locknum+1} is #{@lockers[locknum]}"}
   end
 
   def toggle(locker)
