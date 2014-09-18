@@ -15,14 +15,13 @@ class My_Hash
     found_pair = find_pair_by_key(key)
     if found_pair
       found_pair.value = new_value
+    else @pairs.push(Pair.new(key,new_value))
     end
   end
 
   private
   def find_pair_by_key(key)
-    @pairs.find do |pair|
-      key == pair.key
-    end
+    @pairs.find {|pair| pair.key == key}
   end
 end
 
