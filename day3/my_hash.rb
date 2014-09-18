@@ -5,12 +5,22 @@ class My_Hash
   end
 
   def [](key)
-    found_pair = @pairs.find do |pair|
-      pair.key == key
+    find_pair_by_key(key).value
+  end
+
+  def []=(key, new_value)
+    find_pair_by_key(key).value= new_value
+  end
+
+  private
+  def find_pair_by_key(key)
+    @pairs.find do |pair|
+      key == pair.key
     end
-    found_pair.value
   end
 end
 
 my_hash = My_Hash.new
+puts my_hash["Brian"]
+my_hash["Brian"]= 75
 puts my_hash["Brian"]
