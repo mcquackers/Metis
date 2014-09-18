@@ -4,9 +4,10 @@ class Pair
     @value = value
   end
 
-  attr_reader :key, :value
+  attr_reader :key
+  attr_accessor :value
 
-  def value=(new_value)
-    @value = new_value
-  end
+  #def value=(new_value)
+    #@value = new_value
+  #end
 end

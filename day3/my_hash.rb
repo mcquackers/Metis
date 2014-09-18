@@ -5,11 +5,17 @@ class My_Hash
   end
 
   def [](key)
-    find_pair_by_key(key).value
+    found_pair = find_pair_by_key(key)
+    if found_pair
+      found_pair.value
+    end
   end
 
   def []=(key, new_value)
-    find_pair_by_key(key).value= new_value
+    found_pair = find_pair_by_key(key)
+    if found_pair
+      found_pair.value = new_value
+    end
   end
 
   private
