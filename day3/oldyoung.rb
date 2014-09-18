@@ -30,27 +30,22 @@ class OldYoung
 
   def find_oldest
     old = 0
-    oldest_person=""
     @list_of_names.each_key do |key|
       if @list_of_names[key] > old
         old = @list_of_names[key]
-        oldest_person = key
+        break key
       end
     end
-   oldest_person 
   end
   def find_youngest
     list_ages = []
-    youngest_person = ""
     @list_of_names.each_value {|value| list_ages.push(value)}
     youngest_age = list_ages.sort[0]
-    puts youngest_age
     @list_of_names.each do |key, value|
       if value == youngest_age
-       youngest_person = key 
+       break key 
       end
     end
-    youngest_person
   end
 end
 
